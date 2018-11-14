@@ -1,0 +1,22 @@
+h1
+{
+    color: red;
+    font-size: 42px;
+    width:80%;
+    margin:0 auto;
+    padding-bottom:20px;
+}
+body
+{
+    background-color: #2C4146;
+}
+main
+{
+    background-color: #E8F6FF;
+    width:80%;
+    margin:0 auto;
+    border: 1px #E8F6FF; solid;
+    border-radius: 10px;
+    height: 541px;
+    padding-top :70px;
+}

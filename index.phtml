@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>PHP</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="stylesheet" href="css/todolist.css">
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+	<main>
+        <h1>Gestionnaire de tâches :-)</h1>
+
+					<!-- Formulaire listant toutes les tâches existantes avec possibilité de suppression. -->
+			<form class="standard-form" action="remove.php" method="POST">
+				<ul class="task-list">
+											<li>
+							<input id="task-0" type="checkbox" name="indexes[]" value="0">
+							<label for="task-0" class="priority-high ">
+								titre                                 							</label>
+							<p>tache</p>
+						</li>
+										<li>
+						<input type="submit" value="Supprimer" title="Supprimer les tâches sélectionnées">
+					</li>
+				</ul>
+			</form>
+			<hr>
+		
+        <section>
+            <!-- Formulaire d'ajout de tâche -->
+            <form class="standard-form label-left" action="add.php" method="POST">
+                <fieldset>
+                    <legend>Informations sur la tâche</legend>
+                    <ul>
+                        <li>
+                            <label for="title">Titre :</label>
+                            <input id="title" name="title" type="text">
+                        </li>
+                        <li>
+                            <label for="description">Tâche :</label>
+                            <textarea id="description" name="description" rows="5"></textarea>
+                        </li>
+                        <li>
+                            <label for="day">Date de fin :</label>
+                            <select id="day" name="day">
+                                                                    <?php for ( $day=1; $day < 32; $day++ ){ ?>
+                                                                        <option value="<?php echo $day; ?>"><?php echo $day;?></option>
+                                                                      
+                                                                    <?php } ?>
+                                                            </select>
+                            <span>/</span>
+                            <select name="month">
+                           <?
+                          
+                            $months_list = array("Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre");
+                            
+
+
+                            </select>
+                            <span>/</span>
+                            <select name="year">
+                            <?php for ($year=2018; $year < 2021; $year++){ ?>
+                             <option value="<?php echo $year; ?>"><?php echo $year;?></option> 
+
+                             <?php } ?>                                      
+                            </select>
+                        </li>
+                        <li>
+                            <label>Priorité :</label>
+                            <input id="priority-low" name="priority" type="radio" value="priority-low">
+                            <label for="priority-low">Basse</label>
+                            <input id="priority-normal" name="priority" type="radio" value="priority-normal">
+                            <label for="priority-normal">Normale</label>
+                            <input id="priority-high" name="priority" type="radio" value="priority-high">
+                            <label for="priority-high">Haute</label>
+                        </li>
+                        <li>
+                            <input type="submit" value="Ajouter" title="Ajouter une nouvelle tâche">
+                        </li>
+                    </ul>
+                </fieldset>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
